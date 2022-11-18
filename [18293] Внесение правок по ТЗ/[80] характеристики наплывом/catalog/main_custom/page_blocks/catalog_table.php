@@ -87,12 +87,11 @@ else{
 		"USE_FAST_VIEW_PAGE_DETAIL" => CAllcorp3::GetFrontParametrValue('USE_FAST_VIEW_PAGE_DETAIL'),
 		"EXPRESSION_FOR_FAST_VIEW" => CAllcorp3::GetFrontParametrValue('EXPRESSION_FOR_FAST_VIEW'),
 		"ORDER_VIEW" => CAllcorp3::GetFrontParametrValue('ORDER_VIEW') == 'Y',
-		/* modification S 24.10.2022
-			"SHOW_PROPS" => CAllcorp3::GetFrontParametrValue('SHOW_PROPS_BLOCK'),
-		*/
-		/*"SHOW_PROPS" => $showProps,*/
-		"SHOW_PROPS" => 'Y',
-		/*"SHOW_PROPS" => (($arResult["VARIABLES"]["SECTION_ID"] == '151') ? 'Y' : ''),*/
+		/* --- modification S 18.11.2022 - SLIDE PROPS --- */
+		/*"SHOW_PROPS" => CAllcorp3::GetFrontParametrValue('SHOW_PROPS_BLOCK'),*/
+		"SECTION_USER_FIELDS" => array('UF_SLIDE_PROPS'),
+		"SHOW_PROPS" => ($arSection['UF_SLIDE_PROPS']['VALUE'] == 1) ? 'Y' : CAllcorp3::GetFrontParametrValue('SHOW_PROPS_BLOCK'),
+		/*/ --- end modification S 18.11.2022 - SLIDE PROPS --- /*/
 		"PICTURE_RATIO" => $arParams['PICTURE_RATIO'] ?? strtolower(CAllcorp3::GetFrontParametrValue('ELEMENTS_IMG_TYPE')),
 	),
 	$component, array('HIDE_ICONS' => $isAjax)

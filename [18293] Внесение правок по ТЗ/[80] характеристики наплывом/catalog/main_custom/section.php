@@ -41,7 +41,34 @@ $arParams['SHOW_ONE_CLINK_BUY'] = $arTheme["SHOW_ONE_CLICK_BUY"]["VALUE"];
 $arParams['MAX_GALLERY_ITEMS'] = $arTheme["SHOW_CATALOG_GALLERY_IN_LIST"]["DEPENDENT_PARAMS"]["MAX_GALLERY_ITEMS"]["VALUE"];
 $arParams['SHOW_GALLERY'] = $arTheme["SHOW_CATALOG_GALLERY_IN_LIST"]["VALUE"];
 ?>
+<?
+/* --- modification S 18.11.2022 - SLIDE PROPS --- */
 
+
+$arOrder = [
+	"SORT"=>"ASC"
+];
+$arFilter = [
+  'IBLOCK_ID' => $arParams["IBLOCK_ID"],
+	'ID' => $arResult["VARIABLES"]["SECTION_ID"],
+
+];
+
+$arSelect = [
+  'UF_SLIDE_PROPS',
+];
+
+$resSections = CIBlockSection::GetList(false, $arFilter, false , $arSelect);
+$arSection = $resSections->GetNext();
+/*if($arSection = $resSections->GetNext()){ */
+	/*print_r($arSection);*/
+/*if($arSection['UF_SLIDE_PROPS']['VALUE'] == 1) {
+    print_r('Да');
+	}
+}*/
+
+/*/ --- end modification S 18.11.2022 - SLIDE PROPS --- /*/
+?>
 <?// get current section ID
 $arSectionFilter = [];
 if ($arResult["VARIABLES"]["SECTION_ID"] > 0) {
