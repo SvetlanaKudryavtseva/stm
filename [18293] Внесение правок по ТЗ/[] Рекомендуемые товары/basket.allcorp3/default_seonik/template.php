@@ -166,8 +166,10 @@
 <?
 
 foreach($arResult['ITEMS'] as $arItem) {
-	$id_of_products_in_basket = $arItem['ID'];
+	$id_of_products_in_basket[] = $arItem['ID'];
 }
+
+$id_search = $id_of_products_in_basket[array_rand($id_of_products_in_basket)];
 ?>
 
 <?
@@ -191,7 +193,7 @@ foreach($arResult['ITEMS'] as $arItem) {
 		"HIDE_NOT_AVAILABLE" => "N",
 		"IBLOCK_ID" => "43",
 		"IBLOCK_TYPE" => "aspro_allcorp3_catalog",
-		"ID" => $id_of_products_in_basket,
+		"ID" => $id_search,
 		"LINE_ELEMENT_COUNT" => "6",
 		"MESS_BTN_BUY" => "Купить",
 		"MESS_BTN_DETAIL" => "Подробнее",
