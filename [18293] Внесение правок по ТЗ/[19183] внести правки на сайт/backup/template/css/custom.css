@@ -1,0 +1,204 @@
+/*NOTE: This file is intended for programmers. Aspro technical support is not advised to work with him.*/
+/* Examples (uncomment to use):*/
+/* Expand site width */
+/* body .wrapper { max-width: 1400px !important;  } */
+/* Set site background image */
+/* body {  background: url(image_source) top no-repeat; }
+/* Hide compare button */
+/* a.compare_item { display: none !important;  }*/
+/* --- MAKE VISIBLE EMAIL DROPDOWN  when hover e-mail icon in fixed menu in header_fixed_1_custom --- */
+.icon-block--only_icon .icon-block__name {
+    display: block;
+}
+/* --- IMAIL POPUP IN MOBILE FIXED HEADER MENU --- */
+#email-dropdown {
+position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 3000;
+    background: #fff;
+    background: var(--black_bg_black);
+    display: none;
+    opacity: 1;
+    visibility: visible;
+    padding: 0;
+    cursor: def;
+}
+#email-dropdown {
+    top: calc(100% + 1px);
+}
+/* --- SMALLER LOGO --- */
+.logo a {
+    width: 80%;
+    height: 80%;
+}
+/* --- NESTED ORDERED LISTS --- */
+ol {
+  list-style: none;
+  counter-reset: li;
+}
+li:before {
+  counter-increment: li; 
+  content: counters(li,".") ". ";
+}
+/* --- COOKIE POPUP --- */
+.dyn_mp_jqm_frame.TEXT.BOTTOM_CENTER .popup-text-info {
+    justify-content: space-evenly;
+    max-width: 100%;
+    background-color: #2d2d2d;
+    color: #fff;
+    font-size: 15px!important;
+}
+.dyn_mp_jqm_frame.TEXT .popup-text-info__text {
+    font-size: .9667em;
+    line-height: 1.2em;
+    padding: 1rem;
+}
+/* --- BIGGER IMAGE ON PRODUCT PAGE --- */
+#catalog-detail .catalog-detail__gallery {
+    padding: 0px 23px;
+}
+#catalog-detail .catalog-detail__gallery.catalog-detail__gallery--vertical  {
+    padding-left: 10px!important;
+    max-width: calc(var(--sizeImage) + var(--paddingRightLeft,10px));
+}
+#catalog-detail .catalog-detail__gallery .catalog-detail__gallery--vertical {
+    --paddingRightLeft: 13px!important + 10px!important;
+}
+#catalog-detail .owl-stage-outer .owl-stage {
+width: 398px!important;
+}
+#catalog-detail .owl-stage-outer .owl-stage .owl-item .active .current {
+width: 398px!important;
+}
+/* ALIGNING STICKERS WITH PRODUCT IMAGE ON PRODUCT PAGE and PRODUCT GALLERY THUMBS*/
+/*.catalog-detail__gallery-wrapper {
+    margin-left: -63px;
+}
+.catalog-detail__gallery__item--no-image span .catalog-detail__gallery__item a {
+    height: 300px;
+}
+.catalog-detail__gallery__thmb {
+    margin-top: -130px;
+}
+.rounded {
+    border-radius: 4px;
+}*/
+/* --- MEDIA SMALLER LOGO --- */
+@media screen and (max-width: 1600px){
+	.logo a img {
+		max-height: 68%;
+	} 
+}
+@media all and (max-width: 1370px) {
+.catalog-detail .catalog-detail__top-info {
+    flex-direction: column;
+}
+.catalog-detail__gallery {
+    --sizeImage: 554px;
+--bottomGallery: -120px;
+}
+.catalog-detail__main {
+z-index: 4;
+}
+.catalog-detail__gallery__item--no-image span, .catalog-detail__gallery__item a {
+    height: fit-content;
+}
+.detail img {
+padding-top: 2.5rem;
+}
+}
+/* --- MEDIA SMALLER LOGO --- */
+@media screen and (max-width: 535px){
+	.logo a img {
+		max-height: 55%;
+	} 
+.catalog-detail__gallery {
+--bottomGallery: -250px;
+}
+}
+@media screen and (max-width: 420px){
+.catalog-detail__gallery {
+--bottomGallery: -320px;
+}
+}
+/* Block "Often Search" tags in sections*/
+.often-tags{
+padding: 13px 23px;
+margin-bottom: 1rem;
+}
+.often-tags__items{
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+margin-bottom: .3rem;
+}
+.often-tags__item {
+outline: none;
+    margin: 4px;
+    padding: 6px 14px;
+    cursor: pointer;
+}
+/* Catalog sections list - changed dropdown*/
+#catalog .sections-list__item--has-additional-text .sections-list__item-text-wrapper {
+ justify-content: flex-start;
+margin-top: 65%;
+min-height:100%;
+}
+#catalog .sections-list__item-link--absolute {
+top:unset;
+}
+#catalog .sections-list .shadow-parent-all:not(.sections-list__item-without-image) .shadow-target {
+    /*align-items: flex-start;*/
+align-items: center;
+    justify-content: flex-start;
+}
+#catalog .sections-list .shadow-target {
+    position: revert;
+}
+#catalog .sections-list .shadow-parent-all:hover .shadow-target {
+    top: 0;
+    bottom: auto;
+}
+#catalog .sections-list__item--has-additional-text .sections-list__item-text-top-part .mCSB_container {
+    min-height: 100%;
+    justify-content: flex-start;
+    align-items: start;
+}
+#catalog .mCustomScrollBox {
+min-height: 100%;
+max-height: none!important;
+}
+.sections-list__item--has-additional-text .sections-list__item-text-wrapper .sections-list__item-text-top-part:not(.mCustomScrollbar){
+visibility: visible;
+padding: 1.2rem;
+}
+#catalog .main_toggle {
+    right: 25px;
+    top: -13px;
+    display: inline-block;
+    vertical-align: middle;
+    height: auto;
+    position: relative;
+}
+/* ARTICLES IN CATALOG*/
+.inner-block__title-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+padding-top: 5rem;
+padding-bottom: 3rem;
+}
+.inner-block__title-wrapper h2 {
+margin: 0!important;
+}
+.inner-block__part--right {
+    display: flex;
+    align-items: center;
+}
+@media (max-width: 600px) {
+.inner-block__link {
+    font-size: 0;
+}
+}
