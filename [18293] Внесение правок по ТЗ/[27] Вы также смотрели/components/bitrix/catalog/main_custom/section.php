@@ -122,7 +122,7 @@ if ($section) {
 	if ($section['UF_FILTER_VIEW']) {
 		$viewTmpFilter = $section['UF_FILTER_VIEW'];
 	}
-	
+
 	$viewTableProps = 0;
 	if ($section['UF_TABLE_PROPS']) {
 		$viewTableProps = $section['UF_TABLE_PROPS'];
@@ -132,7 +132,7 @@ if ($section) {
 	if ($section['UF_PICTURE_RATIO']) {
 		$viewPictureRatio = $section['UF_PICTURE_RATIO'];
 	}
-	
+
 	$includeSubsection = '';
 	if ($section['UF_INCLUDE_SUBSECTION']) {
 		$includeSubsection = $section['UF_INCLUDE_SUBSECTION'];
@@ -317,25 +317,21 @@ $bMobileItemsCompact = $arTheme['MOBILE_LIST_ELEMENTS_COMPACT_IN_SECTIONS']['VAL
 			if (CAllcorp3::GetFrontParametrValue('CATALOG_COMPARE') == 'N') {
 				$arParams["USE_COMPARE"] = 'N';
 			}
-			
+
 			$bContolAjax = (isset($_SERVER["HTTP_X_REQUESTED_WITH"]) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == "xmlhttprequest" && isset($_GET["control_ajax"]) && $_GET["control_ajax"] == "Y" );
 			$sViewElementTemplate = ($arParams["SECTION_ELEMENTS_TYPE_VIEW"] == "FROM_MODULE" ? $arTheme["ELEMENTS_CATALOG_PAGE"]["VALUE"] : $arParams["SECTION_ELEMENTS_TYPE_VIEW"]);
 			?>
-			<? // Блок тегов "Часто ищут" ?> 
+			<?// Блок тегов "Часто ищут" ?>
 			<div class="top-content-block">
 				<div class="often-tags bordered rounded-4">
 					<p>Часто ищут:</p>
 						<div class="often-tags__items">
 							<?$APPLICATION->ShowViewContent('top_content2');
-								
 							?>
 						</div>
 				</div>
 			</div>
-			<? // end Блок тегов "Часто ищут" ?> 
-
-			
-
+			<?// end Блок тегов "Часто ищут" ?>
 
 			<?// section elements?>
 			<div class="js_wrapper_items<?=($arTheme["LAZYLOAD_BLOCK_CATALOG"]["VALUE"] == "Y" ? ' with-load-block' : '')?>" >
@@ -343,7 +339,7 @@ $bMobileItemsCompact = $arTheme['MOBILE_LIST_ELEMENTS_COMPACT_IN_SECTIONS']['VAL
 					<?if($bContolAjax):?>
 						<?$APPLICATION->RestartBuffer();?>
 					<?endif;?>
-					
+
 					<?@include_once('page_blocks/'.$sViewElementTemplate.'.php');?>
 					<?\Aspro\Allcorp3\Functions\Extensions::init('images_detail');?>
 
@@ -352,138 +348,188 @@ $bMobileItemsCompact = $arTheme['MOBILE_LIST_ELEMENTS_COMPACT_IN_SECTIONS']['VAL
 					<?endif;?>
 				</div>
 			</div>
-		<?/* --- modification S 18.11.2022 ARTICLES --- */?>
-					<div class="js_wrapper_items<?=($arTheme["LAZYLOAD_BLOCK_CATALOG"]["VALUE"] == "Y" ? ' with-load-block' : '')?>" >
+			<?/* --- modification S 18.11.2022 ARTICLES --- */?>
+			<div class="js_wrapper_items<?=($arTheme["LAZYLOAD_BLOCK_CATALOG"]["VALUE"] == "Y" ? ' with-load-block' : '')?>" >
 				<div class="js-load-wrapper">
 					<?if($bContolAjax):?>
 						<?$GLOBALS['APPLICATION']->RestartBuffer();?>
 					<?endif;?>
 
-					<? /* --- Блок "Вам будет интересно" --- */ ?> 
+					<?// Блок "Вам будет интересно"?> 
 					<?
-					// id инфоблока, в котором будем выводить статьи
-					$IBLOCK_ID = $arParams['IBLOCK_ID'];
-					/*print_r($IBLOCK_ID);*/
-			
-			
-					// Получаем массив id-шников элементов, выбранных в пользовательском поле "Статьи в каталоге" в конкретном разделе
-					$rsSelectedItems = CIBlockSection::GetList(
-						["SORT"=>"ASC"],
-						["IBLOCK_ID"=>$IBLOCK_ID,"ID" =>$arSection["ID"]],
-						false,
-						["UF_ARTICLES_IN_CATALOG"],
-					);
+						$IBLOCK_ID = $arParams['IBLOCK_ID'];
+
+						$rsSelectedItems = CIBlockSection::GetList(
+							["SORT"=>"ASC"],
+							["IBLOCK_ID"=>$IBLOCK_ID,"ID" =>$arSection["ID"]],
+							false,
+							["UF_ARTICLES_IN_CATALOG"],
+						);
 					?>
 					<?while($arSelectedArticles = $rsSelectedItems->GetNext()):?>
 						<?$arSelectedIDs = $arSelectedArticles["UF_ARTICLES_IN_CATALOG"];?>
-			
 						<?if(!empty($arSelectedIDs)):?>
 							<?$GLOBALS["arFilterArticlesInCatalog"] = array("ID"=>$arSelectedIDs);?>
 						<?endif;?>
 					<?endwhile;?>
-			
 					<?if(!empty($arSelectedIDs)):?>
 						<?$APPLICATION->IncludeComponent(
-	"bitrix:news.list", 
-	"blog-list-seonik", 
-	array(
-		"ACTIVE_DATE_FORMAT" => "j F Y",
-		"ADD_SECTIONS_CHAIN" => "Y",
-		"AJAX_MODE" => "Y",
-		"AJAX_OPTION_ADDITIONAL" => "",
-		"AJAX_OPTION_HISTORY" => "N",
-		"AJAX_OPTION_JUMP" => "N",
-		"AJAX_OPTION_STYLE" => "Y",
-		"CACHE_FILTER" => "Y",
-		"CACHE_GROUPS" => "Y",
-		"CACHE_TIME" => "36000000",
-		"CACHE_TYPE" => "A",
-		"CHECK_DATES" => "Y",
-		"COMPONENT_TEMPLATE" => "blog-list-seonik",
-		"DETAIL_URL" => "/articles/#SECTION_CODE_PATH#/#ELEMENT_CODE#/",
-		"DISPLAY_BOTTOM_PAGER" => "N",
-		"DISPLAY_DATE" => "Y",
-		"DISPLAY_NAME" => "Y",
-		"DISPLAY_PICTURE" => "Y",
-		"DISPLAY_PREVIEW_TEXT" => "Y",
-		"DISPLAY_TOP_PAGER" => "N",
-		"FIELD_CODE" => array(
-			0 => "NAME",
-			1 => "PREVIEW_TEXT",
-			2 => "PREVIEW_PICTURE",
-			3 => "DATE_ACTIVE_FROM",
-			4 => "",
-		),
-		"FILTER_NAME" => "arFilterArticlesInCatalog",
-		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
-		"IBLOCK_ID" => "37",
-		"IBLOCK_TYPE" => "aspro_allcorp3_content",
-		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
-		"INCLUDE_SUBSECTIONS" => "Y",
-		"MESSAGE_404" => "",
-		"NEWS_COUNT" => "1",
-		"PAGER_BASE_LINK_ENABLE" => "N",
-		"PAGER_DESC_NUMBERING" => "N",
-		"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
-		"PAGER_SHOW_ALL" => "N",
-		"PAGER_SHOW_ALWAYS" => "N",
-		"PAGER_TEMPLATE" => "main",
-		"PAGER_TITLE" => "",
-		"PARENT_SECTION" => "",
-		"PARENT_SECTION_CODE" => "",
-		"PREVIEW_TRUNCATE_LEN" => "",
-		"PROPERTY_CODE" => array(
-			0 => "REDIRECT",
-			1 => "PERIOD",
-			2 => "SALE_NUMBER",
-			3 => "",
-		),
-		"RIGHT_LINK" => "articles/",
-		"RIGHT_TITLE" => "Все статьи",
-		"SET_BROWSER_TITLE" => "N",
-		"SET_LAST_MODIFIED" => "N",
-		"SET_META_DESCRIPTION" => "N",
-		"SET_META_KEYWORDS" => "N",
-		"SET_STATUS_404" => "N",
-		"SET_TITLE" => "N",
-		"SHOW_404" => "N",
-		"SHOW_PREVIEW_TEXT" => "Y",
-		"SORT_BY1" => "ACTIVE_FROM",
-		"SORT_BY2" => "SORT",
-		"SORT_ORDER1" => "DESC",
-		"SORT_ORDER2" => "ASC",
-		"STRICT_SECTION_CHECK" => "N",
-		"SUBTITLE" => "",
-		"TITLE" => "Вам будет интересно",
-		"USE_FILTER" => "Y"
-	),
-	false
-);?>
-					<?endif;?>
-					<? /*/ --- end Блок "Вам будет интересно" --- /*/ ?>
-
+								"bitrix:news.list", 
+								"blog-list-seonik", 
+								array(
+									"ACTIVE_DATE_FORMAT" => "j F Y",
+									"ADD_SECTIONS_CHAIN" => "Y",
+									"AJAX_MODE" => "Y",
+									"AJAX_OPTION_ADDITIONAL" => "",
+									"AJAX_OPTION_HISTORY" => "N",
+									"AJAX_OPTION_JUMP" => "N",
+									"AJAX_OPTION_STYLE" => "Y",
+									"CACHE_FILTER" => "Y",
+									"CACHE_GROUPS" => "Y",
+									"CACHE_TIME" => "36000000",
+									"CACHE_TYPE" => "A",
+									"CHECK_DATES" => "Y",
+									"COMPONENT_TEMPLATE" => "blog-list-seonik",
+									"DETAIL_URL" => "/articles/#SECTION_CODE_PATH#/#ELEMENT_CODE#/",
+									"DISPLAY_BOTTOM_PAGER" => "N",
+									"DISPLAY_DATE" => "Y",
+									"DISPLAY_NAME" => "Y",
+									"DISPLAY_PICTURE" => "Y",
+									"DISPLAY_PREVIEW_TEXT" => "Y",
+									"DISPLAY_TOP_PAGER" => "N",
+									"FIELD_CODE" => array(
+										0 => "NAME",
+										1 => "PREVIEW_TEXT",
+										2 => "PREVIEW_PICTURE",
+										3 => "DATE_ACTIVE_FROM",
+										4 => "",
+									),
+									"FILTER_NAME" => "arFilterArticlesInCatalog",
+									"HIDE_LINK_WHEN_NO_DETAIL" => "N",
+									"IBLOCK_ID" => "37",
+									"IBLOCK_TYPE" => "aspro_allcorp3_content",
+									"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
+									"INCLUDE_SUBSECTIONS" => "Y",
+									"MESSAGE_404" => "",
+									"NEWS_COUNT" => "1",
+									"PAGER_BASE_LINK_ENABLE" => "N",
+									"PAGER_DESC_NUMBERING" => "N",
+									"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+									"PAGER_SHOW_ALL" => "N",
+									"PAGER_SHOW_ALWAYS" => "N",
+									"PAGER_TEMPLATE" => "main",
+									"PAGER_TITLE" => "",
+									"PARENT_SECTION" => "",
+									"PARENT_SECTION_CODE" => "",
+									"PREVIEW_TRUNCATE_LEN" => "",
+									"PROPERTY_CODE" => array(
+										0 => "REDIRECT",
+										1 => "PERIOD",
+										2 => "SALE_NUMBER",
+										3 => "",
+									),
+									"RIGHT_LINK" => "articles/",
+									"RIGHT_TITLE" => "Все статьи",
+									"SET_BROWSER_TITLE" => "N",
+									"SET_LAST_MODIFIED" => "N",
+									"SET_META_DESCRIPTION" => "N",
+									"SET_META_KEYWORDS" => "N",
+									"SET_STATUS_404" => "N",
+									"SET_TITLE" => "N",
+									"SHOW_404" => "N",
+									"SHOW_PREVIEW_TEXT" => "Y",
+									"SORT_BY1" => "ACTIVE_FROM",
+									"SORT_BY2" => "SORT",
+									"SORT_ORDER1" => "DESC",
+									"SORT_ORDER2" => "ASC",
+									"STRICT_SECTION_CHECK" => "N",
+									"SUBTITLE" => "",
+									"TITLE" => "Вам будет интересно",
+									"USE_FILTER" => "Y"
+								),
+								false
+							);?>
+						<?endif;?>
+					<?//end Блок "Вам будет интересно"?>
 
 					<?if($bContolAjax):?>
 						<?die();?>
 					<?endif;?>
 				</div>
 			</div>
-		<?/* --- end */?>
-
+		<?/* --- end modification S 18.11.2022 ARTICLES --- */?>
 			<?$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'/js/jquery.history.js');?>
 		<?else:?>
 			<div class="alert alert-danger">
 				<?=($arParams['MESSAGE_404'] ?:Loc::getMessage("NOT_FOUNDED_SECTION"));?>
 			</div>
 		<?endif;?>
+		
+		<?// Блок "Вы также смотрели" ?>
+		<?$APPLICATION->IncludeComponent(
+			"bitrix:catalog.products.viewed",
+			".default",
+			Array(
+				"ACTION_VARIABLE" => "action_cpv",
+				"ADD_PROPERTIES_TO_BASKET" => "Y",
+				"ADD_TO_BASKET_ACTION" => "ADD",
+				"BASKET_URL" => "/personal/basket.php",
+				"CACHE_GROUPS" => "Y",
+				"CACHE_TIME" => "3600",
+				"CACHE_TYPE" => "A",
+				"COMPONENT_TEMPLATE" => ".default",
+				"CONVERT_CURRENCY" => "N",
+				"DEPTH" => "2",
+				"DISPLAY_COMPARE" => "N",
+				"ENLARGE_PRODUCT" => "STRICT",
+				"HIDE_NOT_AVAILABLE" => "N",
+				"HIDE_NOT_AVAILABLE_OFFERS" => "N",
+				"IBLOCK_ID" => "43",
+				"IBLOCK_MODE" => "single",
+				"IBLOCK_TYPE" => "aspro_allcorp3_catalog",
+				"LABEL_PROP_POSITION" => "top-left",
+				"MESS_BTN_ADD_TO_BASKET" => "В корзину",
+				"MESS_BTN_BUY" => "Купить",
+				"MESS_BTN_DETAIL" => "Подробнее",
+				"MESS_BTN_SUBSCRIBE" => "Подписаться",
+				"MESS_NOT_AVAILABLE" => "Нет в наличии",
+				"PAGE_ELEMENT_COUNT" => "6",
+				"PARTIAL_PRODUCT_PROPERTIES" => "N",
+				"PRICE_CODE" => array(),
+				"PRICE_VAT_INCLUDE" => "Y",
+				"PRODUCT_BLOCKS_ORDER" => "price,props,sku,quantityLimit,quantity,buttons",
+				"PRODUCT_ID_VARIABLE" => "id",
+				"PRODUCT_PROPS_VARIABLE" => "prop",
+				"PRODUCT_QUANTITY_VARIABLE" => "quantity",
+				"PRODUCT_ROW_VARIANTS" => "[{'VARIANT':'6','BIG_DATA':false}]",
+				"PRODUCT_SUBSCRIPTION" => "N",
+				"SECTION_CODE" => "",
+				"SECTION_ELEMENT_CODE" => "",
+				"SECTION_ELEMENT_ID" => $GLOBALS["CATALOG_CURRENT_ELEMENT_ID"],
+				"SECTION_ID" => $GLOBALS["CATALOG_CURRENT_SECTION_ID"],
+				"SHOW_CLOSE_POPUP" => "N",
+				"SHOW_DISCOUNT_PERCENT" => "N",
+				"SHOW_FROM_SECTION" => "N",
+				"SHOW_MAX_QUANTITY" => "N",
+				"SHOW_OLD_PRICE" => "N",
+				"SHOW_PRICE_COUNT" => "1",
+				"SHOW_SLIDER" => "Y",
+				"SLIDER_INTERVAL" => "3000",
+				"SLIDER_PROGRESS" => "Y",
+				"TEMPLATE_THEME" => "green",
+				"USE_ENHANCED_ECOMMERCE" => "N",
+				"USE_PRICE_COUNT" => "N",
+				"USE_PRODUCT_QUANTITY" => "N"
+			)
+		);?>
+		<?// end Блок "Вы также смотрели"?>
 	</div>
 	<?if($bShowLeftBlock):?>
 		<?CAllcorp3::ShowPageType('left_block');?>
 	<?endif;?>
 </div>
 
-<?
-CAllcorp3::setCatalogSectionDescription(
+<?CAllcorp3::setCatalogSectionDescription(
 	array(
 		'FILTER_NAME' => $arParams['FILTER_NAME'],
 		'CACHE_TYPE' => $arParams['CACHE_TYPE'],
@@ -492,5 +538,4 @@ CAllcorp3::setCatalogSectionDescription(
 		'SHOW_SECTION_DESC' => $arParams['SHOW_SECTION_DESC'],
 		'SEO_ITEM' => $arSeoItem,
 	)
-);
-?>
+);?>
