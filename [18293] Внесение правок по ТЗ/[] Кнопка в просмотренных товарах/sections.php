@@ -318,7 +318,7 @@ $APPLICATION->SetPageProperty('MENU', 'N');
 		"MESS_BTN_BUY" => "Купить",
 		"MESS_BTN_DETAIL" => "Подробнее",
 		"MESS_BTN_SUBSCRIBE" => "Подписаться",
-		"MESS_NOT_AVAILABLE" => "Нет в наличии",
+		"MESS_NOT_AVAILABLE" => "",
 		"PAGE_ELEMENT_COUNT" => "6",
 		"PARTIAL_PRODUCT_PROPERTIES" => "Y",
 		"PRICE_CODE" => array(
@@ -351,7 +351,8 @@ $APPLICATION->SetPageProperty('MENU', 'N');
 		"CURRENCY_ID" => "RUB"
 	),
 	false
-);?>
+);
+?>
 		<?// end Блок "Вы также смотрели"?>
 		</div><!-- end block recently-viewed -->
 	</div>
@@ -360,3 +361,23 @@ $APPLICATION->SetPageProperty('MENU', 'N');
 	<?endif;?>
 </div>
 
+<?
+$arViewed = [];
+$basketUserId = (int) CSaleBasket::GetBasketUserID(false);
+if ($basketUserId > 0) {
+$viewedIterator = \Bitrix\Catalog\CatalogViewedProductTable::getList([
+'select' => ['PRODUCT_ID', 'ELEMENT_ID'],
+'filter' => ['=FUSER_ID' => $basketUserId, '=SITE_ID' => SITE_ID],
+'order' => ['DATE_VISIT' => 'DESC'],
+'limit' => 10
+]);
+while ($arFields = $viewedIterator->fetch()) {
+$arViewed[] = $arFields['ELEMENT_ID'];
+}
+}
+$cnt = count($arViewed);
+
+echo '<pre>';
+print_r($arViewed);
+echo '</pre>';
+?>
