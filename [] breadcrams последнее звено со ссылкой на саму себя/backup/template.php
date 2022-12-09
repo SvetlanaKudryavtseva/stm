@@ -68,7 +68,7 @@ if($arResult){
 			$strReturn .= '</div>';
 		}
 		else{
-			$strReturn .= '<span class="breadcrumbs__item'.($bMobileBreadcrumbs ? ' breadcrumbs__item--mobile' : '').'" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><link href="'.GetPagePath().'" itemprop="item" /><span><span itemprop="name" class="breadcrumbs__item-name font_13">'.$title.'</span><meta itemprop="position" content="'.($index + 1).'"></span></span>';
+			$strReturn .= '<span class="breadcrumbs__item'.($bMobileBreadcrumbs ? ' breadcrumbs__item--mobile' : '').'" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><link href="'.GetPagePath().'" itemprop="item" /><span><a href="'.GetPagePath().'"><span itemprop="name" class="breadcrumbs__item-name font_13">'.$title.'</span></a><meta itemprop="position" content="'.($index + 1).'"></span></span>';
 		}
 	}
 
