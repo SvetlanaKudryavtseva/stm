@@ -1,0 +1,70 @@
+Options -Indexes 
+ErrorDocument 404 /404.php
+
+<IfModule mod_php.c>
+  php_flag session.use_trans_sid off
+</IfModule>
+
+<IfModule mod_php7.c>
+  php_flag session.use_trans_sid off
+</IfModule>
+
+<IfModule mod_rewrite.c>
+  Options +FollowSymLinks
+  RewriteEngine On
+  
+  
+  # Редирект домена с WWW на домен без WWW
+	RewriteCond %{HTTP_HOST} ^www\.(.*)$
+	RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+
+  # Добавлять слэш на конец URL
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_URI} !\..{1,10}$
+	RewriteCond %{REQUEST_URI} !(.*)/$
+	RewriteRule ^(.*)$ http://%{HTTP_HOST}/$1/ [L,R=301]
+
+  # Убираем index.html на конце
+	RewriteCond %{REQUEST_URI} ^(.*)/index\.html$
+	RewriteRule ^(.*)index\.html$ http://%{HTTP_HOST}/$1 [R=301,L]
+
+  # Убираем index.php на конце
+	RewriteCond %{REQUEST_URI} ^(.*)/index\.php$
+	RewriteRule ^(.*)index\.php$ http://%{HTTP_HOST}/$1 [R=301,L]
+
+  # Не применяем к админке, иначе перестает работать страница Highload-блоки BITRIX
+	RewriteCond %{REQUEST_URI} !/bitrix/admin/.* [NC]
+	RewriteRule (.*?)index\.php/*(.*) /$1$2 [R=301,NE,L]
+
+  # Удалем повторяющиеся слеши
+  RewriteCond %{THE_REQUEST} //
+	RewriteRule (.*) /$0 [R=301,L]
+
+
+			
+	# ASPRO_ROBOTS Serve robots.txt with robots.php only if the latter exists
+	RewriteCond %{REQUEST_FILENAME} robots.txt
+	RewriteCond %{DOCUMENT_ROOT}/robots.php -f
+	RewriteRule ^(.*)$ /robots.php [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-l
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !/bitrix/urlrewrite.php$
+  RewriteRule ^(.*)$ /bitrix/urlrewrite.php [L]
+  RewriteRule .* - [E=REMOTE_USER:%{HTTP:Authorization}]
+
+Redirect 301 /product/index.php /catalog/
+</IfModule>
+
+<IfModule mod_dir.c>
+  DirectoryIndex index.php index.html
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive on
+  ExpiresByType image/jpeg "access plus 3 day"
+  ExpiresByType image/gif "access plus 3 day"
+  ExpiresByType image/png "access plus 3 day"
+  ExpiresByType text/css "access plus 3 day"
+  ExpiresByType application/javascript "access plus 3 day"  
+</IfModule>

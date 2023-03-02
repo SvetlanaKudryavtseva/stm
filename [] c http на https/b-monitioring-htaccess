@@ -1,0 +1,295 @@
+Options +FollowSymLinks
+Options -Indexes 
+ErrorDocument 404 /404.php
+RewriteEngine On
+												
+	# ASPRO_SITEMAP_sitemap-iblock-92 Serve sitemap.xml with sitemap.php only if the latter exists
+	RewriteCond %{REQUEST_FILENAME} sitemap-iblock-92.xml
+	RewriteCond %{DOCUMENT_ROOT}/sitemap-iblock-92.php -f
+	RewriteRule ^(.*)$ /sitemap-iblock-92.php [L]
+												
+	# ASPRO_SITEMAP_sitemap-iblock-91 Serve sitemap.xml with sitemap.php only if the latter exists
+	RewriteCond %{REQUEST_FILENAME} sitemap-iblock-91.xml
+	RewriteCond %{DOCUMENT_ROOT}/sitemap-iblock-91.php -f
+	RewriteRule ^(.*)$ /sitemap-iblock-91.php [L]
+												
+	# ASPRO_SITEMAP_sitemap-iblock-89 Serve sitemap.xml with sitemap.php only if the latter exists
+	RewriteCond %{REQUEST_FILENAME} sitemap-iblock-89.xml
+	RewriteCond %{DOCUMENT_ROOT}/sitemap-iblock-89.php -f
+	RewriteRule ^(.*)$ /sitemap-iblock-89.php [L]
+												
+	# ASPRO_SITEMAP_sitemap-iblock-88 Serve sitemap.xml with sitemap.php only if the latter exists
+	RewriteCond %{REQUEST_FILENAME} sitemap-iblock-88.xml
+	RewriteCond %{DOCUMENT_ROOT}/sitemap-iblock-88.php -f
+	RewriteRule ^(.*)$ /sitemap-iblock-88.php [L]
+												
+	# ASPRO_SITEMAP_sitemap-iblock-87 Serve sitemap.xml with sitemap.php only if the latter exists
+	RewriteCond %{REQUEST_FILENAME} sitemap-iblock-87.xml
+	RewriteCond %{DOCUMENT_ROOT}/sitemap-iblock-87.php -f
+	RewriteRule ^(.*)$ /sitemap-iblock-87.php [L]
+												
+	# ASPRO_SITEMAP_sitemap-iblock-86 Serve sitemap.xml with sitemap.php only if the latter exists
+	RewriteCond %{REQUEST_FILENAME} sitemap-iblock-86.xml
+	RewriteCond %{DOCUMENT_ROOT}/sitemap-iblock-86.php -f
+	RewriteRule ^(.*)$ /sitemap-iblock-86.php [L]
+												
+	# ASPRO_SITEMAP_sitemap-iblock-85 Serve sitemap.xml with sitemap.php only if the latter exists
+	RewriteCond %{REQUEST_FILENAME} sitemap-iblock-85.xml
+	RewriteCond %{DOCUMENT_ROOT}/sitemap-iblock-85.php -f
+	RewriteRule ^(.*)$ /sitemap-iblock-85.php [L]
+												
+	# ASPRO_SITEMAP_sitemap-iblock-84 Serve sitemap.xml with sitemap.php only if the latter exists
+	RewriteCond %{REQUEST_FILENAME} sitemap-iblock-84.xml
+	RewriteCond %{DOCUMENT_ROOT}/sitemap-iblock-84.php -f
+	RewriteRule ^(.*)$ /sitemap-iblock-84.php [L]
+												
+	# ASPRO_SITEMAP_sitemap-iblock-83 Serve sitemap.xml with sitemap.php only if the latter exists
+	RewriteCond %{REQUEST_FILENAME} sitemap-iblock-83.xml
+	RewriteCond %{DOCUMENT_ROOT}/sitemap-iblock-83.php -f
+	RewriteRule ^(.*)$ /sitemap-iblock-83.php [L]
+												
+	# ASPRO_SITEMAP_sitemap-iblock-82 Serve sitemap.xml with sitemap.php only if the latter exists
+	RewriteCond %{REQUEST_FILENAME} sitemap-iblock-82.xml
+	RewriteCond %{DOCUMENT_ROOT}/sitemap-iblock-82.php -f
+	RewriteRule ^(.*)$ /sitemap-iblock-82.php [L]
+												
+	# ASPRO_SITEMAP_sitemap-iblock-81 Serve sitemap.xml with sitemap.php only if the latter exists
+	RewriteCond %{REQUEST_FILENAME} sitemap-iblock-81.xml
+	RewriteCond %{DOCUMENT_ROOT}/sitemap-iblock-81.php -f
+	RewriteRule ^(.*)$ /sitemap-iblock-81.php [L]
+												
+	# ASPRO_SITEMAP_sitemap-iblock-80 Serve sitemap.xml with sitemap.php only if the latter exists
+	RewriteCond %{REQUEST_FILENAME} sitemap-iblock-80.xml
+	RewriteCond %{DOCUMENT_ROOT}/sitemap-iblock-80.php -f
+	RewriteRule ^(.*)$ /sitemap-iblock-80.php [L]
+												
+	# ASPRO_SITEMAP_sitemap-iblock-76 Serve sitemap.xml with sitemap.php only if the latter exists
+	RewriteCond %{REQUEST_FILENAME} sitemap-iblock-76.xml
+	RewriteCond %{DOCUMENT_ROOT}/sitemap-iblock-76.php -f
+	RewriteRule ^(.*)$ /sitemap-iblock-76.php [L]
+												
+	# ASPRO_SITEMAP_sitemap-iblock-75 Serve sitemap.xml with sitemap.php only if the latter exists
+	RewriteCond %{REQUEST_FILENAME} sitemap-iblock-75.xml
+	RewriteCond %{DOCUMENT_ROOT}/sitemap-iblock-75.php -f
+	RewriteRule ^(.*)$ /sitemap-iblock-75.php [L]
+												
+	# ASPRO_SITEMAP_sitemap-iblock-74 Serve sitemap.xml with sitemap.php only if the latter exists
+	RewriteCond %{REQUEST_FILENAME} sitemap-iblock-74.xml
+	RewriteCond %{DOCUMENT_ROOT}/sitemap-iblock-74.php -f
+	RewriteRule ^(.*)$ /sitemap-iblock-74.php [L]
+												
+	# ASPRO_SITEMAP_sitemap-iblock-73 Serve sitemap.xml with sitemap.php only if the latter exists
+	RewriteCond %{REQUEST_FILENAME} sitemap-iblock-73.xml
+	RewriteCond %{DOCUMENT_ROOT}/sitemap-iblock-73.php -f
+	RewriteRule ^(.*)$ /sitemap-iblock-73.php [L]
+												
+	# ASPRO_SITEMAP_sitemap-iblock-72 Serve sitemap.xml with sitemap.php only if the latter exists
+	RewriteCond %{REQUEST_FILENAME} sitemap-iblock-72.xml
+	RewriteCond %{DOCUMENT_ROOT}/sitemap-iblock-72.php -f
+	RewriteRule ^(.*)$ /sitemap-iblock-72.php [L]
+												
+	# ASPRO_SITEMAP_sitemap-iblock-71 Serve sitemap.xml with sitemap.php only if the latter exists
+	RewriteCond %{REQUEST_FILENAME} sitemap-iblock-71.xml
+	RewriteCond %{DOCUMENT_ROOT}/sitemap-iblock-71.php -f
+	RewriteRule ^(.*)$ /sitemap-iblock-71.php [L]
+												
+	# ASPRO_SITEMAP_sitemap-iblock-66 Serve sitemap.xml with sitemap.php only if the latter exists
+	RewriteCond %{REQUEST_FILENAME} sitemap-iblock-66.xml
+	RewriteCond %{DOCUMENT_ROOT}/sitemap-iblock-66.php -f
+	RewriteRule ^(.*)$ /sitemap-iblock-66.php [L]
+												
+	# ASPRO_SITEMAP_sitemap-iblock-65 Serve sitemap.xml with sitemap.php only if the latter exists
+	RewriteCond %{REQUEST_FILENAME} sitemap-iblock-65.xml
+	RewriteCond %{DOCUMENT_ROOT}/sitemap-iblock-65.php -f
+	RewriteRule ^(.*)$ /sitemap-iblock-65.php [L]
+												
+	# ASPRO_SITEMAP_sitemap-files Serve sitemap.xml with sitemap.php only if the latter exists
+	RewriteCond %{REQUEST_FILENAME} sitemap-files.xml
+	RewriteCond %{DOCUMENT_ROOT}/sitemap-files.php -f
+	RewriteRule ^(.*)$ /sitemap-files.php [L]
+    
+# Редирект домена мосты.рф
+#RewriteCond %{HTTP_HOST} ^(www\.)?xn----dtbbtawedcgcfavvhj\.xn--p1ai$ [NC]
+#RewriteRule ^(.*)$ https://b-monitoring.ru/$1 [R=301,L]						
+
+<IfModule mod_php.c>
+  php_flag session.use_trans_sid off
+</IfModule>
+
+<IfModule mod_php5.c>
+
+	# Настройки для CMS BITRIX (php 5)
+	php_flag session.use_trans_sid off
+	php_value mbstring.func_overload 2
+	php_value max_input_vars 11000
+	php_value request_order GP
+	php_value mail.add_x_header	0
+
+	# Устанавливаем кодировку UTF-8
+	AddDefaultCharset	UTF-8
+
+</IfModule>
+
+<IfModule mod_php7.c>
+
+	# Настройки для CMS BITRIX (php 7)
+	php_flag session.use_trans_sid off
+	php_value mbstring.func_overload 2
+	php_value max_input_vars 11000
+	php_value request_order GP
+	php_value mail.add_x_header	0
+	# Устанавливаем кодировку UTF-8
+	AddDefaultCharset	UTF-8
+
+</IfModule>
+
+<IfModule mod_rewrite.c>
+ 
+RewriteCond %{HTTPS} off
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
+RewriteBase /
+RewriteRule ^sitemap$ sitemap.php
+
+# Редирект домена bridge-monitoring
+RewriteCond %{HTTP_HOST} ^www\.bridge-monitoring\.ru$ [NC]
+RewriteRule ^(.*)$ http://b-monitoring.ru/$1 [L,R=301]
+RewriteCond %{HTTP_HOST} ^bridge-monitoring\.ru$ [NC]
+RewriteRule ^(.*)$ https://b-monitoring.ru/$1 [L,R=301]
+# Редирект домена мосты.рф
+RewriteCond %{HTTP_HOST} ^www\.xn----dtbbtawedcgcfavvhj\.xn--p1ai$ [NC]
+RewriteRule ^(.*)$ https://b-monitoring.ru/$1 [L,R=301]
+RewriteCond %{HTTP_HOST} ^xn----dtbbtawedcgcfavvhj\.xn--p1ai$ [NC]
+RewriteRule ^(.*)$ https://b-monitoring.ru/$1 [L,R=301]
+
+	# Редирект домена с WWW на домен без WWW
+	RewriteCond %{HTTP_HOST} ^www\.(.*)$
+	RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+	# Добавлять слэш на конец URL
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_URI} !\..{1,10}$
+	RewriteCond %{REQUEST_URI} !(.*)/$
+	RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1/ [L,R=301]
+
+	# Убираем index.php на конце
+	RewriteCond %{REQUEST_URI} ^(.*)/index\.php$
+	RewriteRule ^(.*)index\.php$ https://%{HTTP_HOST}/$1 [R=301,L]
+  
+
+
+	# Убираем index.html на конце
+	RewriteCond %{REQUEST_URI} ^(.*)/index\.html$
+	RewriteRule ^(.*)index\.html$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+
+# 301 Redirect
+#23.06.22 Iker3
+    Redirect 301 /news/	https://b-monitoring.ru/company/news/
+    Redirect 301 /articles/	https://b-monitoring.ru/company/articles/
+#end 23.06.22 iker3
+	Redirect 301 /works/construction-monitoring/geodezikal-monitoring/	/
+	Redirect 301 /about/vypolnennye-obekty-v-oblasti-dsh-i-op/	/
+	Redirect 301 /works/construction-monitoring/geotechnikal-monitoring/	/
+	Redirect 301 /cosmodrome/	/
+	Redirect 301 /systema-kontrolya-rjd/	/
+	Redirect 301 /works/technicheskaya-baza/	/
+	Redirect 301 /dsc_0085/	/
+	Redirect 301 /7d79a205716b32e82619-1024x681/	/
+	Redirect 301 /ryabinovaya/	/
+	Redirect 301 /bridge-logo/	/
+	Redirect 301 /мостовые-конструкции/	/
+	Redirect 301 /works/	/
+	Redirect 301 /dsc_0098/	/
+	Redirect 301 /company/about-bridge-monitoring/	/
+	Redirect 301 /мостовые-конструкции/изолирующие-устройства/	/
+	Redirect 301 /any-monitoring/	/
+	Redirect 301 /dsc_0088/	/
+	Redirect 301 /image043/	/
+	Redirect 301 /works/construction-monitoring/smik/	/
+	Redirect 301 /company/информация-о-продуктах/	/
+	Redirect 301 /мостовые-конструкции/демпфирующие-устройства/	/
+	Redirect 301 /works/construction-monitoring/	/
+	Redirect 301 /works/online-monitoring/	/
+	Redirect 301 /image019/	/
+	Redirect 301 /about/	/
+	Redirect 301 /image013/	/
+	Redirect 301 /kemchug/	/
+	Redirect 301 /works/construction-monitoring/suks/	/
+	Redirect 301 /about/poslednie-obekty-texnologicheskogo-monitoringa/	/
+	Redirect 301 /nagatinskij/	/
+	Redirect 301 /dsc_0108/	/
+	Redirect 301 /puteprovod-monitoring/	/
+	Redirect 301 /untitled-7/	/
+	Redirect 301 /mission/	/
+	Redirect 301 /author/bridge-construction-technology/	/
+	Redirect 301 /works/научная-деятельность/	/
+	Redirect 301 /bg/	/
+	Redirect 301 /portative-monitoring/	/
+	Redirect 301 /works/construction-monitoring/smis/	/
+	Redirect 301 /мостовые-конструкции/opornye-chasti-mostov/	/
+	Redirect 301 /мостовые-конструкции/shok-transmittery/	/
+	Redirect 301 /favicon/	/
+	Redirect 301 /мостовые-конструкции/balochnye-shvy-mostov/	/
+	Redirect 301 /gidravlicheskie-ustroistva-seysmozashita/	/
+	Redirect 301 /balochnye-shvy-mostov/	https://b-monitoring.ru/product/deformatsionnye-shvy/
+	Redirect 301 /dsc04047/	/
+	Redirect 301 /works/construction-monitoring/why-important/	/
+	Redirect 301 /мостовые-конструкции/антисейсмические-устройста/	/
+	Redirect 301 /logo-1260/	/
+	Redirect 301 /untitled-6/	/
+	Redirect 301 /smik/	/
+	Redirect 301 /construction-monitoring/	/
+	Redirect 301 /materialy-dlya-omonolichivaniya-shvov-pri-ustanovke-deformacionnyx-shvov/	/
+	Redirect 301 /shok-transmittery/	https://b-monitoring.ru/product/seysmika/shok-transmittery/
+	Redirect 301 /антисейсмические-устройста/	https://b-monitoring.ru/product/seysmika/
+	Redirect 301 /opornye-chasti-mostov/	https://b-monitoring.ru/product/opornye-chasti-mostov/
+	Redirect 301 /демпфирующие-устройства/	/
+	Redirect 301 /мостовые-конструкции/opornye-chasti-mostov/резино-металлические-оч/	/
+	Redirect 301 /company/articles/seysmika/seysmozashchitnye-ustroystva/	https://b-monitoring.ru/company/articles/seysmozashchitnye-ustroystva/
+	Redirect 301 /company/articles/monitoring/o-vazhnosti-monitoringa/	https://b-monitoring.ru/company/articles/o-vazhnosti-monitoringa/
+
+	Redirect 301 /opornye-chasti-mostov/	/
+	Redirect 301 /kacha/	/
+	Redirect 301 /image057/	/
+	Redirect 301 /shok-transmittery/	/
+	Redirect 301 /научная-деятельность/	/
+	# Redirect 301 /product/deformatsionnye-shvy/ 	/
+	Redirect 301 /product/deformatsionnye-shvy/filter/seriya_dsh-is-дш-б/apply/	/
+	Redirect 301 /product/deformatsionnye-shvy/filter/seriya_dsh-is-дш-пт/apply/	/
+	Redirect 301 /image047/	/
+	Redirect 301 /image023/	/
+	Redirect 301 /prodolzhaem-rabotat-v-eti-dni/	/
+	Redirect 301 /construction-monitoring/smis/	/
+	Redirect 301 /poslednie-obekty-texnologicheskogo-monitoringa/	/
+	Redirect 301 /wp-content/uploads/2016/03/DSC04047.jpg	/
+	Redirect 301 /wp-content/uploads/2015/04/bg.jpg	/
+	Redirect 301 /construction-monitoring/why-important/	/
+	Redirect 301 /balochnye-shvy-mostov/	/
+	Redirect 301 /sitemap/	/
+	Redirect 301 /ыяауиыценьвг/	/
+	Redirect 301 /sitemap.чьд	/
+	Redirect 301 /wp-content/uploads/2015/03/Untitled-5.jpg	/
+	Redirect 301 /демпфирующие-устройства/	/
+	Redirect 301 /projects/deformatsionnye-shvy-na-obektakh/ https://b-monitoring.ru/projects/
+	Redirect 301 /projects/opornye-chasti-mostov-na-obektakh/ https://b-monitoring.ru/projects/
+
+
+	# Не применяем к админке, иначе перестает работать страница Highload-блоки BITRIX
+	RewriteCond %{REQUEST_URI} !/bitrix/admin/.* [NC]
+	RewriteRule (.*?)index\.php/*(.*) /$1$2 [R=301,NE,L]
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-l
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteCond %{REQUEST_FILENAME} !/bitrix/urlrewrite.php$
+	RewriteRule ^(.*)$ /bitrix/urlrewrite.php [L]
+	RewriteRule .* - [E=REMOTE_USER:%{HTTP:Authorization}]
+
+#убираем лишние слеши
+    RewriteCond %{THE_REQUEST} ([^\s]*)\/{2,}(\?[^\s]*)?
+    RewriteRule (.*) %1 [R=301,L]
+
+
+</IfModule>
